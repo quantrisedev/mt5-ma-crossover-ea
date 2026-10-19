@@ -2,7 +2,7 @@
 //|                                             RiskBasedMA_EA.mq5   |
 //|                        Demo portfolio EA for MQL5 freelancing     |
 //+------------------------------------------------------------------+
-#property copyright "Your Name"
+#property copyright "Quantirse_dev"
 #property link      "https://github.com/quantrisedev/mt5-ma-crossover-ea"
 #property version   "1.00"
 #property strict
@@ -11,8 +11,8 @@
 CTrade trade;
 
 //--- input parameters
-input int            FastMAPeriod     = 10;
-input int            SlowMAPeriod     = 20;
+input int            FastMAPeriod     = 200;
+input int            SlowMAPeriod     = 50;
 input ENUM_MA_METHOD MAMethod         = MODE_EMA;
 input ENUM_TIMEFRAMES Timeframe       = PERIOD_CURRENT;
 input double         RiskPercent      = 1.0;      // Risk % of balance per trade
