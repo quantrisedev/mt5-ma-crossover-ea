@@ -1,9 +1,9 @@
 //+------------------------------------------------------------------+
 //|                                             RiskBasedMA_EA.mq5   |
-//|                                                      EA demo     |
+//|                        Demo portfolio EA for MQL5 freelancing     |
 //+------------------------------------------------------------------+
-#property copyright "Quantrise_dev"
-#property link      "https://github.com/quantrisedev/mt5-ma-crossover-ea"
+#property copyright "Your Name"
+#property link      "https://github.com/YOUR_USERNAME/mt5-ma-crossover-ea"
 #property version   "1.00"
 #property strict
 
@@ -23,21 +23,21 @@ input int            SlippagePoints   = 10;
 input string         TradeComment     = "RiskBased MA EA";
 
 //--- global variables
-int      fastMAHandle = INVALID_HANDLE;
-int      slowMAHandle = INVALID_HANDLE;
-int      digits       = 5;
-double   point        = 0.00001;
-int      pointsPerPip = 10;
-datetime lastBarTime  = 0;
+int      fastMAHandle  = INVALID_HANDLE;
+int      slowMAHandle  = INVALID_HANDLE;
+int      symbolDigits  = 5;
+double   point         = 0.00001;
+int      pointsPerPip  = 10;
+datetime lastBarTime   = 0;
 
 //+------------------------------------------------------------------+
 //| Expert initialization                                             |
 //+------------------------------------------------------------------+
 int OnInit()
 {
-   digits       = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
+   symbolDigits = (int)SymbolInfoInteger(_Symbol, SYMBOL_DIGITS);
    point        = SymbolInfoDouble(_Symbol, SYMBOL_POINT);
-   pointsPerPip = (digits == 3 || digits == 5) ? 10 : 1;
+   pointsPerPip = (symbolDigits == 3 || symbolDigits == 5) ? 10 : 1;
 
    fastMAHandle = iMA(_Symbol, Timeframe, FastMAPeriod, 0, MAMethod, PRICE_CLOSE);
    slowMAHandle = iMA(_Symbol, Timeframe, SlowMAPeriod, 0, MAMethod, PRICE_CLOSE);
@@ -114,7 +114,7 @@ void CloseAllPositions()
 //+------------------------------------------------------------------+
 double CalculateLotSize(double slPriceDist)
 {
-   double balance  = AccountInfoDouble(ACCOUNT_BALANCE);
+   double balance   = AccountInfoDouble(ACCOUNT_BALANCE);
    double riskMoney = balance * RiskPercent / 100.0;
    double tickValue = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_VALUE);
    double tickSize  = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_SIZE);
@@ -167,8 +167,8 @@ void OpenBuy()
    double slDist = StopLossPips * pointsPerPip * point;
    double tpDist = TakeProfitPips * pointsPerPip * point;
 
-   double sl = NormalizeDouble(ask - slDist, digits);
-   double tp = NormalizeDouble(ask + tpDist, digits);
+   double sl = NormalizeDouble(ask - slDist, symbolDigits);
+   double tp = NormalizeDouble(ask + tpDist, symbolDigits);
    AdjustStops(sl, tp, true);
 
    double lot = CalculateLotSize(slDist);
@@ -191,8 +191,8 @@ void OpenSell()
    double slDist = StopLossPips * pointsPerPip * point;
    double tpDist = TakeProfitPips * pointsPerPip * point;
 
-   double sl = NormalizeDouble(bid + slDist, digits);
-   double tp = NormalizeDouble(bid - tpDist, digits);
+   double sl = NormalizeDouble(bid + slDist, symbolDigits);
+   double tp = NormalizeDouble(bid - tpDist, symbolDigits);
    AdjustStops(sl, tp, false);
 
    double lot = CalculateLotSize(slDist);
