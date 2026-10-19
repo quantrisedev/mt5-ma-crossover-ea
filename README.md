@@ -35,4 +35,4 @@ A clean, commented MT5 Expert Advisor built as a portfolio/demo project for MQL5
 This is a demonstration/reference EA for code-quality purposes. It is not financial advice and does not guarantee profits. Always backtest and forward-test on a demo account.
 
 ## Author
-[Quantrise_dev — [GitHub]([https://github.com/quantrisedev)] — available for MQL5 freelance projects.
+Quantrise_dev — [https://github.com/quantrisedev)] — available for MQL5 freelance projects.
