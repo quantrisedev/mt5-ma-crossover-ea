@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//|                                             RiskBasedMA_EA.mq5   |
+//|                                             Quant_MA_EA.mq5   |
 //|                        Demo portfolio EA for MQL5 freelancing     |
 //+------------------------------------------------------------------+
 #property copyright "Quantirse_dev"
@@ -20,7 +20,7 @@ input double         StopLossPips     = 50;       // Stop loss in pips
 input double         TakeProfitPips   = 100;      // Take profit in pips
 input long           MagicNumber      = 20250101;
 input int            SlippagePoints   = 10;
-input string         TradeComment     = "RiskBased MA EA";
+input string         TradeComment     = "Quant_MA EA";
 
 //--- global variables
 int      fastMAHandle  = INVALID_HANDLE;
