@@ -3,7 +3,7 @@
 //|                        Demo portfolio EA for MQL5 freelancing     |
 //+------------------------------------------------------------------+
 #property copyright "Your Name"
-#property link      "https://github.com/YOUR_USERNAME/mt5-ma-crossover-ea"
+#property link      "https://github.com/quantrisedev/mt5-ma-crossover-ea"
 #property version   "1.00"
 #property strict
 
