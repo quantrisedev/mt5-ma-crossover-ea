@@ -1,9 +1,9 @@
 # MT5 Risk-Based Moving Average Crossover EA (MQL5)
 
-A clean, commented MT5 Expert Advisor built as a portfolio/demo project for MQL5 freelancing.
+A clean, commented MT5 Expert Advisor built as a demo project for MQL5 freelancing.
 
 ## Features
-- Fast/Slow MA crossover signals (default EMA 10/20)
+- Fast/Slow MA crossover signals (default EMA 200/50)
 - Risk-based lot sizing (risk % of account balance per trade)
 - Stop Loss and Take Profit in pips
 - Respects broker stop level and symbol digits (3-digit / 5-digit brokers)
@@ -14,8 +14,8 @@ A clean, commented MT5 Expert Advisor built as a portfolio/demo project for MQL5
 ## Inputs
 | Input | Default | Description |
 |-------|---------|-------------|
-| FastMAPeriod | 10 | Fast MA period |
-| SlowMAPeriod | 20 | Slow MA period |
+| FastMAPeriod | 200 | Fast MA period |
+| SlowMAPeriod | 50 | Slow MA period |
 | MAMethod | MODE_EMA | Moving average method |
 | Timeframe | PERIOD_CURRENT | Working timeframe |
 | RiskPercent | 1.0 | % of balance risked per trade |
@@ -23,7 +23,7 @@ A clean, commented MT5 Expert Advisor built as a portfolio/demo project for MQL5
 | TakeProfitPips | 100 | Take profit in pips |
 | MagicNumber | 20250101 | EA magic number |
 | SlippagePoints | 10 | Allowed slippage in points |
-| TradeComment | "RiskBased MA EA" | Comment on orders |
+| TradeComment | "Quant_MA EA" | Comment on orders |
 
 ## Installation
 1. Copy `RiskBasedMA_EA.mq5` to: `MT5_data_folder/MQL5/Experts/`
